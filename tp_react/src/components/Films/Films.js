@@ -52,8 +52,60 @@ class Films extends Component{
 
   }
 
-  render() {
-   
+  render() 
+  {
+   var self = this;
+
+    var url = location.search;
+    var step1 = url.split("?");
+    var step2 = step1[1].split("=");
+    var step3 = decodeURIComponent(step2[1]);
+    var step4 = step3.replace(/\+/g, " ");
+
+    film = JSON.parse(step4);
+    id = film.id;
+    var movie;
+    var actor = this.state.info;
+    if(typeof this.state.actors != "undefined")
+    {
+       movie = this.state.actors.map(function(nodes) {
+        return (
+          nodes.name
+        )
+      });
+    }
+
+    var date, header, overview, vote,image;
+
+    if(film.release_date || film.title)
+    {
+      date = 'Date de sortie : '+film.release_date;
+      header = film.title;
+      overview = 'Résumé : '+film.overview;
+      vote = 'Note : '+film.vote_average;
+      image = "https://image.tmdb.org/t/p/w500/"+film.poster_path;
+      movie = 'Casting : ' + movie;
+      type = 0;
+    }
+    else if (film.first_air_date || film.media_type == 'tv')
+    {
+      date = 'Date de sortie : '+film.first_air_date;
+      header = film.name;
+      overview = 'Résumé : '+film.overview;
+      vote = 'Note : '+film.vote_average;
+      image = "https://image.tmdb.org/t/p/w500/"+film.poster_path;
+      movie = 'Casting : ' + movie;
+      type = 1;
+    }
+      else if(film.media_type == 'person')
+    {
+      date = 'Anniversaire : '+actor.birthday;
+      header = actor.name;
+      overview = 'Biographie : '+actor.biography;
+      vote = 'Note : '+actor.popularity;
+      image = "https://image.tmdb.org/t/p/w500/"+actor.profile_path;
+      type = 2;
+    }
 
 
     return (
