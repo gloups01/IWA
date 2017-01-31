@@ -12,18 +12,12 @@
 
 #### 1. Get the latest version
 
-You can start by cloning the latest version of React Starter Kit (RSK) on your
+You can start by cloning the project on your
 local machine by running:
 
 ```shell
-$ git clone -o react-starter-kit -b master --single-branch \
-      https://github.com/kriasoft/react-starter-kit.git MyApp
-$ cd MyApp
+$ git clone https://github.com/gloups01/IWA.git      
 ```
-
-Alternatively, you can start a new project based on RSK right from
-[WebStorm IDE](https://www.jetbrains.com/webstorm/help/create-new-project-react-starter-kit.html),
-or by using [Yeoman generator](https://www.npmjs.com/package/generator-react-fullstack).
 
 #### 2. Run `npm install`
 
