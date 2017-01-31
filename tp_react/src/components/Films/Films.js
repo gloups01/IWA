@@ -52,7 +52,7 @@ class Films extends Component{
 
   }
 
-  render() 
+  render()
   {
    var self = this;
 
@@ -112,8 +112,44 @@ class Films extends Component{
       <div className={s.root}>
         <div className={s.container}>
           <h1>{title}</h1>
-          
-
+          <Grid>
+            <Grid.Row>
+            <Grid.Column width={4} >
+          <Card>
+            <Image src={image}/>
+            <Card.Content>
+              <Card.Header>
+                {header}
+              </Card.Header>
+              <Card.Meta>
+                {date}
+              </Card.Meta>
+            </Card.Content>
+          </Card>
+              </Grid.Column>
+                <Grid.Column width={10} verticalAlign='middle' >
+                {overview}
+                <br />
+                  <br />
+                <b> {movie} </b>
+                <br />
+                <br />
+                <Label color='black'>
+                  <Icon name='star' size='big' color='yellow' />
+                 {vote}
+                </Label>
+                  <br />
+                <a href="http://www.site-telechargement.org/">Télécharger</a>
+                  <br />
+                <a href="http://www.site-telechargement.org/qualite/dvdrip-bdrip">Télécharger en Blueray</a>
+                  <br />
+                  <Label basic as="a">
+                    <Icon circular color='red' name='like' />
+                    Ajouter aux favoris
+                  </Label>
+                </Grid.Column>
+                </Grid.Row>
+                </Grid>
         </div>
       </div>
 
@@ -122,4 +158,3 @@ class Films extends Component{
 }
 
 export default withStyles(Films,s);
-
